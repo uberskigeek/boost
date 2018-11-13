@@ -1,5 +1,5 @@
 package com.example;
-  
+
 import java.io.IOException;
 import java.util.Set;
 
@@ -16,6 +16,6 @@ public class HelloResource {
     @GET
     @Produces("text/plain")
     public String getInformation() throws Exception, IOException {
-        return "Hello World From Your Friends at Liberty Boost EE!";
+        return "Hello World From Your Friends at Liberty Boost EE!.. New Text";
     }
 }

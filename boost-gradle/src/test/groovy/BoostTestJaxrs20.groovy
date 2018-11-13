@@ -41,14 +41,17 @@ public class BoostTestJaxrs20 extends AbstractBoostTest {
 
     @Test
     public void testPackageSuccess() throws IOException {
+       System.out.println("Testing Package")
         BuildResult result = GradleRunner.create()
             .withProjectDir(testProjectDir)
-            .withArguments("build")
+            .withArguments("boostPackage")
             .build()
 
-        assertEquals(SUCCESS, result.task(":installLiberty").getOutcome())
-        assertEquals(SUCCESS, result.task(":libertyCreate").getOutcome())
-        assertEquals(SUCCESS, result.task(":boostPackage").getOutcome())
+          assertTrue("Build Result is null", result != null)
+          assertEquals(SUCCESS, result.task(":installLiberty").getOutcome())
+          assertEquals(SUCCESS, result.task(":libertyCreate").getOutcome())
+          assertEquals(SUCCESS, result.task(":boostPackage").getOutcome())
+        
     }
 
     @Test //Testing that JAXRS-2.0 feature was added to the packaged server.xml
