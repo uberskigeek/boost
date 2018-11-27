@@ -7,29 +7,21 @@ buildscript {
         }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.4.RELEASE")
         classpath("io.openliberty.boost:boost-gradle-plugin:$boostVersion")
+        classpath("org.apache.httpcomponents:httpclient:4.5.6")
+        classpath("org.apache.httpcomponents:httpcore:4.4.10")
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'boost'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-jar {
-    baseName = 'test-docker15'
-}
-
-bootRepackage {
-    mainClass = 'hello.Application'
-    classifier = 'test'
-}
-
-boost {
-    docker {}
+bootJar {
+    baseName = 'test-spring-boot-ssl'
+    mainClassName = 'hello.Application'
 }
 
 repositories {
@@ -42,4 +34,6 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.apache.httpcomponents:httpclient:4.5.6")
+    compile("org.apache.httpcomponents:httpcore:4.4.10")
 }
