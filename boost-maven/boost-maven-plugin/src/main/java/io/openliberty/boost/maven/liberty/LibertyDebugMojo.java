@@ -10,6 +10,7 @@
  *******************************************************************************/
 package io.openliberty.boost.maven.liberty;
 
+import static io.openliberty.boost.maven.liberty.AbstractLibertyMojo.tempPort;
 import static org.twdata.maven.mojoexecutor.MojoExecutor.configuration;
 import static org.twdata.maven.mojoexecutor.MojoExecutor.element;
 import static org.twdata.maven.mojoexecutor.MojoExecutor.executeMojo;
@@ -37,11 +38,12 @@ public class LibertyDebugMojo extends AbstractLibertyMojo {
     @Override
     public void execute() throws MojoExecutionException {
         super.execute();
-
+        super.setServerPort();
         executeMojo(getPlugin(), goal("debug"),
                 configuration(element(name("serverName"), libertyServerName),
                         element(name("clean"), String.valueOf(clean)), getRuntimeArtifactElement()),
                 getExecutionEnvironment());
+	    super.resetServerPort();
     }
 
 }

@@ -19,6 +19,11 @@ import static org.twdata.maven.mojoexecutor.MojoExecutor.name;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+import java.util.Properties;
+import java.util.Set;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Runs the executable archive application (in the console foreground).
@@ -31,15 +36,16 @@ public class LibertyRunMojo extends AbstractLibertyMojo {
      */
     @Parameter(property = "clean", defaultValue = "false")
     private boolean clean;
-
+    
     @Override
     public void execute() throws MojoExecutionException {
         super.execute();
-
+        super.setServerPort();
         executeMojo(getPlugin(), goal("run"),
                 configuration(element(name("serverName"), libertyServerName),
                         element(name("clean"), String.valueOf(clean)), getRuntimeArtifactElement()),
                 getExecutionEnvironment());
+        	super.resetServerPort();
     }
 
 }
