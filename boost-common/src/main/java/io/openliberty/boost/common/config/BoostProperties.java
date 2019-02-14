@@ -19,7 +19,7 @@ import java.util.Properties;
 import io.openliberty.boost.common.BoostLoggerI;
 
 public final class BoostProperties {
-   
+
     public static final String DATASOURCE_DATABASE_NAME = "boost.db.databaseName";
     public static final String DATASOURCE_SERVER_NAME = "boost.db.serverName";
     public static final String DATASOURCE_PORT_NUMBER = "boost.db.portNumber";
@@ -28,6 +28,9 @@ public final class BoostProperties {
     public static final String INTERNAL_COMPILER_TARGET = "boost.internal.compiler.target";
     public static final String PASSWORD_ENCRYPTION_METHOD = "boost.pkg.prop.encryption";
     public static final String PASSWORD_ENCRYPTION_KEY = "boost.pkg.prop.encryption.key";
+    public static final String BOOST_APP_SECURITY = "boost.app.security";
+    public static final String BOOST_APP_QS_USER = "boost.app.qs.user";
+    public static final String BOOST_APP_QS_PW = "boost.qpp.qs.pw";
 
     /**
      * Return a list of all boost properties
@@ -46,6 +49,9 @@ public final class BoostProperties {
         supportedProperties.add(INTERNAL_COMPILER_TARGET);
         supportedProperties.add(PASSWORD_ENCRYPTION_METHOD);
         supportedProperties.add(PASSWORD_ENCRYPTION_KEY);
+        supportedProperties.add(BOOST_APP_SECURITY);
+        supportedProperties.add(BOOST_APP_QS_USER);
+        supportedProperties.add(BOOST_APP_QS_PW);
 
         return supportedProperties;
     }
@@ -58,9 +64,11 @@ public final class BoostProperties {
     public static List<String> getPropertiesToEncrypt() {
         List<String> propertiesToEncrypt = new ArrayList<String>();
         propertiesToEncrypt.add(DATASOURCE_PASSWORD);
+        propertiesToEncrypt.add(BOOST_APP_QS_PW);
+
         return propertiesToEncrypt;
     }
-    
+
     public static Properties getConfiguredBoostProperties(BoostLoggerI logger) {
         List<String> supportedProps = BoostProperties.getAllSupportedProperties();
         Properties systemProperties = System.getProperties();
