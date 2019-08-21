@@ -18,7 +18,7 @@ import boost.common.BoostException;
 import boost.common.BoostLoggerI;
 import boost.common.boosters.AbstractBoosterConfig.BoosterCoordinates;
 
-@BoosterCoordinates(AbstractBoosterConfig.BOOSTERS_GROUP_ID + ":mpjwt")
+@BoosterCoordinates(AbstractBoosterConfig.BOOSTERS_GROUP_ID + ":mp-jwt")
 public class MPJWTBoosterConfig extends AbstractBoosterConfig {
 
     public MPJWTBoosterConfig(Map<String, String> dependencies, BoostLoggerI logger) throws BoostException {
