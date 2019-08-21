@@ -20,9 +20,9 @@ import boost.common.boosters.MPJWTBoosterConfig;
 import boost.runtimes.openliberty.LibertyServerConfigGenerator;
 import boost.runtimes.openliberty.boosters.LibertyBoosterI;
 
-public class LibertyMPJWTBoosterConfig extends MPJWTBoosterConfig implements LibertyBoosterI {
+public class LibertyMPJwtBoosterConfig extends MPJWTBoosterConfig implements LibertyBoosterI {
 
-    public LibertyMPJWTBoosterConfig(Map<String, String> dependencies, BoostLoggerI logger) throws BoostException {
+    public LibertyMPJwtBoosterConfig(Map<String, String> dependencies, BoostLoggerI logger) throws BoostException {
         super(dependencies, logger);
     }
 

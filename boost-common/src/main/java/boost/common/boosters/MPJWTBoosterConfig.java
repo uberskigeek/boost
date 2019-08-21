@@ -18,15 +18,15 @@ import boost.common.BoostException;
 import boost.common.BoostLoggerI;
 import boost.common.boosters.AbstractBoosterConfig.BoosterCoordinates;
 
-@BoosterCoordinates(AbstractBoosterConfig.BOOSTERS_GROUP_ID + ":mpJWT")
+@BoosterCoordinates(AbstractBoosterConfig.BOOSTERS_GROUP_ID + ":mp-jwt")
 public class MPJWTBoosterConfig extends AbstractBoosterConfig {
 
-        public MPJWTBoosterConfig(Map<String, String> dependencies, BoostLoggerI logger) throws BoostException {
-                super(dependencies.get(getCoordinates(MPJWTBoosterConfig.class)));
-        }
+    public MPJWTBoosterConfig(Map<String, String> dependencies, BoostLoggerI logger) throws BoostException {
+        super(dependencies.get(getCoordinates(MPJWTBoosterConfig.class)));
+    }
 
-        @Override
-        public List<String> getDependencies() {
-                return new ArrayList<String>();
-        }
+    @Override
+    public List<String> getDependencies() {
+        return new ArrayList<String>();
+    }
 }

@@ -60,9 +60,17 @@ public class JwtIT {
     }
 
     @Test
-    public void testSuite() {
+    public void testSuiteGetName() {
         this.testJwtGetName(true);
+    }
+
+    @Test
+    public void testSuiteGetCustomClaim() {
         this.testJwtGetCustomClaim(true);
+    }
+
+    @Test
+    public void testSuiteGetCustomClaimUnauthorized() {
         this.testJwtGetCustomClaim(false);
     }
 
