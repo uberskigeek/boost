@@ -47,8 +47,8 @@
       <dependencies>
           <dependency>
               <groupId>boost.boosters</groupId>
-              <artifactId>mp20-bom</artifactId>
-			  <version>@pom.version@</version>
+              <artifactId>mp14-bom</artifactId>
+              <version>@pom.version@</version>
               <type>pom</type>
               <scope>import</scope>
           </dependency>
@@ -91,7 +91,7 @@
     </dependency>
     <dependency>
        <groupId>boost.boosters</groupId>
-       <artifactId>mpJWT</artifactId>
+       <artifactId>mpjwt</artifactId>
     </dependency>
     <dependency>
        <groupId>javax.activation</groupId>
