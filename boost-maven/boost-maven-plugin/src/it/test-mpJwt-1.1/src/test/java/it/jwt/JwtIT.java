@@ -60,12 +60,19 @@ public class JwtIT {
     }
 
     @Test
-    public void testSuite() {
+    public void testSuiteGetName() {
         this.testJwtGetName(true);
-        this.testJwtGetCustomClaim(true);
-        this.testJwtGetCustomClaim(false);
     }
 
+    @Test
+    public void testSuiteGetCustomClaim() {
+        this.testJwtGetCustomClaim(true);
+    }
+    
+    @Test
+    public void testSuiteGetCustomClaimUnauthorized() {
+        this.testJwtGetCustomClaim(false);
+    }
     public void testJwtGetName(boolean userAuthorized) {
         String jwtUrl = baseUrl + INV_JWT + "/username";
         Response jwtResponse = TestUtils.processRequest(jwtUrl, "GET", null, authHeader);
